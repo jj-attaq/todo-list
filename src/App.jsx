@@ -1,34 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import Dashboard from './components/dashboard.jsx';
+import Button from './components/button.jsx';
+import './App.css';
+const log = console.log;
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    const [currentList, setList] = useState([])
+    const [currentString, setString] = useState('')
+    /*
+    setList(
+        [
+            ...currentList, todo1
+        ]
+    )
+    */
+    function createTodo(todo) {
+        const edit = <Button value={'Edit'} style={'btn'} onClick={() => console.log('test')}/>;
+        const remove = <Button value={'Remove'} style={'btn'} onClick={() => console.log('test')}/>;
+        return [{
+            todo,
+            edit,
+            remove
+        }]
+    }
+    const todo1 = createTodo('Tie shoes.')
+    return (
+        <div className="App">
+            <div>
+                <p>TODO LIST</p>
+            </div>
+            <Dashboard onClick={() => {
+                setString('test')
+            }} />
+            <div className={'todoList'}>{currentString}</div>
+        </div>
+    )
 }
 
 export default App

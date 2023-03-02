@@ -1,3 +1,11 @@
+.btn {
+    @apply cursor-pointer border-solid border-slate-400 border-2 m-2 p-2 rounded-xl hover:bg-sky-200;
+}
+.todoList {
+    @apply grid grid-cols-3;
+}
+/******************************************************************************/
+/*
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -40,3 +48,4 @@
 .read-the-docs {
   color: #888;
 }
+*/
